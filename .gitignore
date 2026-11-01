@@ -1,0 +1,21 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+*.cutmarker.json
+.DS_Store
+Thumbs.db
+ffmpeg/
+cutmarker/resources/bin/
+# Bundled FFmpeg binaries are large; install via scripts/download_ffmpeg.py
+cutmarker/resources/bin/*.exe
+assets/*.mp4
+assets/*.mov
+assets/New Project*.ico
+*.spec.bak
+.cursor/

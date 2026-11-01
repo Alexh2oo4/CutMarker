@@ -1,0 +1,10 @@
+# CutMarker — Windows desktop film cut detection
+PySide6>=6.6.0
+numpy>=1.26.0
+opencv-python-headless>=4.8.0
+scenedetect>=0.6.4
+imageio-ffmpeg>=0.5.1
+Pillow>=10.0.0
+py-ptsl>=600.0.0
+pytest>=8.0.0
+pyinstaller>=6.0.0

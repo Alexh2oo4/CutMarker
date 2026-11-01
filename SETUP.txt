@@ -1,0 +1,92 @@
+CutMarker — run from source (Windows)
+=====================================
+
+Prefer the easy route? Download CutMarker-windows.zip from Releases,
+unzip it, and run CutMarker.exe (keep the _internal folder next to it).
+No Python or FFmpeg setup needed.
+
+If you downloaded the source code instead, follow these steps.
+
+
+1. Install Python
+----------------
+- Install Python 3.11 or newer from https://www.python.org/downloads/
+- Tick "Add python.exe to PATH" during install
+- Open a new PowerShell window and check:
+
+    python --version
+
+  You should see Python 3.11.x or higher.
+
+
+2. Open this folder
+-------------------
+In PowerShell:
+
+    cd path\to\CutMarker
+
+  (Use the folder that contains this SETUP.txt file.)
+
+
+3. Create a virtual environment
+-------------------------------
+    python -m venv .venv
+    .\.venv\Scripts\Activate.ps1
+
+If PowerShell blocks the activate script:
+
+    Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+
+Then run Activate.ps1 again. Your prompt should show (.venv).
+
+
+4. Install dependencies
+-----------------------
+    python -m pip install --upgrade pip
+    pip install -r requirements.txt
+    pip install -e .
+
+
+5. Install FFmpeg + FFprobe
+---------------------------
+The source download does not include these binaries. With the venv
+still active, run:
+
+    python scripts\download_ffmpeg.py
+
+That places ffmpeg.exe and ffprobe.exe in:
+
+    cutmarker\resources\bin\
+
+Confirm both files exist there before continuing.
+
+
+6. Run CutMarker
+----------------
+With the venv still active:
+
+    python -m cutmarker
+
+Import a video, analyse cuts, then either:
+- Send to Pro Tools (PTSL) for Absolute markers, or
+- Export CSV for manual marker entry
+
+
+7. Next time you open it
+------------------------
+    cd path\to\CutMarker
+    .\.venv\Scripts\Activate.ps1
+    python -m cutmarker
+
+You do not need to reinstall packages or FFmpeg unless you delete
+those folders.
+
+
+Pro Tools (optional)
+--------------------
+For Send to Pro Tools you need:
+- Pro Tools 2023.6+ running with a session open
+- Scripting / PTSL enabled
+- CutMarker session start timecode and frame rate matching the session
+
+CSV export works without Pro Tools.
